@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+
+  <title>Arnaud's homepage</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="jumbotron-narrow.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+  <script>
+  $('input.filter').live('keyup', function() {
+    var rex = new RegExp($(this).val(), 'i');
+    $('.searchable tr').hide();
+    $('.searchable tr').filter(function() {
+      return rex.test($(this).text());
+    }).show();
+  });
+  </script>
+  <script>
+  function rm_jumbotron() {
+    var jumbo;
+    jumbo = document.getElementById("intro");
+    jumbo.style.display = "none";
+  }
+  </script>
+
+  <style>
+
+  a.external_link {
+    background: url(https://qsf.ec.quoracdn.net/-3-images.new_grid.external_link.svg-26-aef78ead48f1f1e2.svg) no-repeat right .3em;
+    padding-right: 15px;
+    background-size: 10.5px;
+  }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header clearfix">
+      <div class="col-lg-2">
+        <img src="./profile.jpg" style="width:150px; border-radius:100%"></img>
+      </div>
+      <div class="col-lg-10">
+        <div class="alert alert" role="alert">
+          <ul>
+            <li><h3> Arnaud Miribel</h3></li>
+            <li> Currently a research intern at Equancy, I am working on my Master Thesis which theme is deep learning for computer vision. My main field of study is machine learning.
+              <li style="text-align:right"><a href="https://www.linkedin.com/in/arnaudmiribel/"><i class="fa fa-linkedin fa-2x"></i></a> <a href="https://twitter.com/ArnaudMiribel"> <i class="fa fa-twitter fa-2x"></i></a> <a href="https://github.com/arnaudmiribel/"> <i class="fa fa-github fa-2x"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="jumbotron" id="intro">
+        <h2>Hello,</h2>
+        <p class="lead">Welcome to my homepage. It is intended to introduce myself to you, and to   present some of my projects.</p>
+        <p><a class="btn btn-success" href="#" role="button" onclick="rm_jumbotron()">Got it :)</a></p>
+      </div>
+
+
+      <div class="row" id="professional">
+        <h1>Professional Experience</h1>
+        <table class="table table-striped" id="myTable">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Experience</th>
+              <th>Location</th>
+              <th style="font-weight:normal">
+                <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Filter label" style="height:25px"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="year">02/17<br>08/17</td>
+                <td>
+                  <i class="fa fa-cog fa-spin fa-fw"></i> <strong>Data Science Intern</strong>, <a class="external_link" href="http://www.equancy.com">Equancy</a>
+                  <input type="checkbox" class="read-more-state" id="post-2"/>
+                  Deployment of deep-learning methods for marketing purposes.
+                  <label for="post-2" class="read-more-trigger"></label>
+                  <div class="read-more-wrap">
+                    <div class="read-more-target"> Followed fast.ai's MOOC <i>Practical Deep Learning for Coders</i>. Thesis supervised by Prof. <a class="external_link" href="http://people.inf.ethz.ch/jaggim/">Martin Jaggi</a>.
+                      Working on computer vision related topics including image classification and localization using fully convolutional neural networks.
+                    </div>
+                  </div>
+                  <div class="progress" style="width:30%; margin:10px 0 0px 0">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"><span class="sr-only">60% Complete</span></div>
+                  </div>
+                </td>
+                <td>Paris, France</td>
+                <td>
+                  <span class="label label-info">deep-learning</span>
+                  <span class="label label-info" style="background:black;">computer vision</span></td>
+                </tr>
+                <tr>
+                </div>
+                <td class="year">09/16<br>01/17</td>
+                <td><strong>Campus Ambassador</strong>, <a class="external_link" href="http://www.jetbrains.com">JetBrains</a> <br>
+                  Organized Python workshops in order to promote JetBrain's IDE PyCharm</td>
+                  <td>Lausanne, Switzerland</td>
+                  <td>
+                    <span class="label label-success">software</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="year">09/16<br>01/17</td>
+                  <td><strong>Machine Learning Teaching Assistant</strong>, <a class="external_link" href="http://www.epfl.ch">EPFL</a> <a class="external_link" href="http://mlo.epfl.ch">MLO Laboratory</a> <br>
+                    Helped students for exercise sessions and gave a hand to prepare and correct Machine Learning projects</td>
+                    <td>Lausanne, Switzerland</td>
+                    <td><span class="label label-danger">teaching</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="year">07/16<br>09/16</td>
+                    <td><strong>Data Science Intern</strong>, <a class="external_link" href="http://www.am.pictet">Pictet Asset Management</a><br>
+                      Worked on different projects involving web scraping, natural
+                      language processing, topic extraction, dimensionality reduction and data visualization.
+                    </td>
+                    <td>Geneva, Switzerland</td>
+                    <td>
+                      <span class="label label-warning">nlp</span></td>
+                    </tr>
+                    <tr>
+                      <td class="year">04/16</td>
+                      <td><strong>Swift Instructor</strong>, <a class="external_link" href="http://techsparkacademy.ch/en/home/">TechSpark Academy</a><br>
+                        Taught «Mobile App Programming with Swift» course for an Easter Camp. We were two instructors teaching for 12 teenagers.</td>
+                        <td>Geneva, Switzerland</td>
+                        <td><span class="label label-danger">teaching</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+
+
+                <div class="row" id="educational">
+                  <h1>Educational Background</h1>
+                  <table class="table table-striped" id="myTable">
+                    <thead>
+                      <tr>
+                        <th>Year</th>
+                        <th>Degree</th>
+                        <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tbody class="searchable">
+                      <tr>
+                        <td class="year">09/15<br>09/17</td>
+                        <td>
+                          <i class="fa fa-cog fa-spin fa-fw"></i> <strong>M. Sc. in Communication Systems</strong>, Ecole Polytechnique Féderale de Lausanne<br>
+                          The program emphasizes the global interplay of Mathematics, Computer Science
+                          and Electrical Engineering. I chose a specialization in <span class="label label-default">Data Analytics</span>
+                          <div class="progress" style="width:30%; margin:10px 0 10px 0">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">60% Complete</span></div>
+                          </div>
+                        </td>
+                        <td>Lausanne, Switzerland</td>
+                      </tr>
+                      <tr>
+                        <td class="year">09/14<br>12/14</td>
+                        <td><strong>International Chinese Language Program</strong>, National Taiwan University<br>
+                          Intensive quarter of Traditional Mandarin. Part of my gap year.
+                        </td>
+                        <td>Taipei, Taiwan</td>
+                      </tr>
+                      <tr>
+                        <td class="year">09/12<br>09/14</td>
+                        <td><strong>B. Sc. in Communication Systems</strong>, Ecole Polytechnique Féderale de Lausanne<br>
+                          Relevant courses :  Internet Analytics, Time Series, Signal Processing, Stochastic Models.
+                        </td>
+                        <td>Lausanne, Switzerland</td>
+                      </tr>
+                      <tr>
+                        <td class="year">09/10<br>09/12</td>
+                        <td><strong>Intensive Preparatory Courses (CPGE)</strong>, Lycée Champollion<br>
+                          Two years which act as a preparatory course for enrollment in one of the engineering graduate schools. Focus on Mathematics, Physics, Chemistry</td>
+                          <td>Grenoble, France</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+
+
+
+                  <div>
+                    <input type="checkbox" class="read-more-state" id="post-2" />
+
+
+                    <div class="row marketing" id="portfolio">
+                      <h1>Portfolio</h1>
+
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <h4>Patents in Switzerland <span class="label label-warning">nlp</span></h4>
+                          <p>Collected for over 50 years of patents abstracts authenticated in Switzerland. Computed topic extraction (LDA) and dimension reduction (Fisher-LDA) to visualize the semantic path of innovation in Switzerland through the last 50 years: from chemistry to information sciences.</p>
+                        </div>
+                        <div class="col-lg-6">
+                          <h4>Error detection in archives <span class="label label-warning">nlp</span></h4>
+                          <p>The goal of the project was to detect and correct errors introduced in the <a class="external_link" href="http://www.letempsarchives.ch/">Le Temps digital archive</a> (~4M news articles published over the last 2 centuries). Leveraged a full NLP pipeline to detect errors with 93% precision, enabling to spot outlying years with particularly high error rates and giving insights about OCR error types. </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <h4>Wine Price Forecasting <span class="label label-info">data-viz</span></h4>
+                          <p>Scraped weather, price and grade data for all french wine regions. Built an interactive dashboard to give data-driven back-ups on weather, wine quality and wine prices correlations. Also explored regression models to forecast the first retail price of a wine given weather and its past grades.</p>
+                        </div>
+                        <div class="col-lg-6">
+                          <h4>Image Classification <span class="label label-info" style="background:black;">computer vision</span></h4>
+                          <p>As a first project in Machine Learning we were given pictures of 4 classes from ImageNet and our task was to classify them using usual ML classifiers. Best score was achieved with CNN features.</p>
+                        </div>
+                      </div>
+
+                      <div class="row" id="extra-professional">
+                        <h1>Extra-professional Activities</h1>
+                        <div class="col-lg-6">
+                          <h4>5 Seasons Project (2015)</h4>
+                          <p>Organized my gap year with <a class="external_link" href="http://www.5seasonsproject.com">5 projects</a>, one per season, within Travels (Eastern Europe, Asia, Australia) and Traditional Mandarin courses in Taipei (Taïwan)</p>
+                          <div class="embed-responsive embed-responsive-16by9">
+                            <iframe width="100%" src="https://www.youtube.com/embed/0G5aLv1T_Qk" frameborder="0" allowfullscreen></iframe>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <h4>Ingénieurs Nomades (2014)</h4>
+                          <p>Participated to a crazy charity car raid (4L Trophy) crossing France, Spain and Morocco. Built a student association to promote it inside EPFL that helped over 50 students funding their adventure and getting mechanics lessons. <a href="http://www.facebook.com/ingenom" class="external_link"> Ingénieurs Nomades</a> is still expanding today.</p>
+                          <iframe width="100%" src="https://player.vimeo.com/video/68030101" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                      </div>
+
+                      <footer class="footer">
+                        <p>&copy; 2017 Arnaud. Powered by Bootstrap.</p>
+                      </footer>
+
+                    </div> <!-- /container -->
+
+
+                    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+                    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+                  </body>
+                  </html>
